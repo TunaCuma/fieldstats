@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from "next-intl";
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function EditPlayer() {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const params = useParams();
   const { playerId } = params;
 

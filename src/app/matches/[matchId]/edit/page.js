@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from "next-intl";
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function EditMatch() {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const params = useParams();
   const { matchId } = params;
 

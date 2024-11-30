@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from "next-intl";
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function Upload() {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {

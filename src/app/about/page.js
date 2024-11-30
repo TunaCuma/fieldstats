@@ -1,10 +1,10 @@
 'use client'
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from "next-intl";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function About() {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <div className="container mx-auto p-4">

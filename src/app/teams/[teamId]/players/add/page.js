@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from "next-intl";
 import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function AddPlayersToTeam() {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const router = useRouter();
   const params = useParams();
   const { teamId } = params;

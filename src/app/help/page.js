@@ -1,13 +1,13 @@
 'use client'
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from "next-intl";
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export default function Help() {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const [searchQuery, setSearchQuery] = useState('');
 
   const faqs = [

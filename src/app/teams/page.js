@@ -1,13 +1,13 @@
 'use client'
 
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from "next-intl";
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export default function Teams() {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   // Mock data for teams
   const teams = [
