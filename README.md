@@ -1,14 +1,16 @@
 # TODO
 
-- [ ] story book ogren
-- [ ] Make it deploy (vercel)
-- [ ] Scaffold basic UI with mock data
-- [ ] Actually set up a database (vercel postgres)
+- [x] Make it deploy (vercel)
+- [x] Scaffold basic UI with mock data
+- [x] Actually set up a database (vercel postgres)
+- [ ] Build schema
 - [ ] Attach database to UI
-- [ ] Add authentication (w/ clerk)
-- [ ] Add image upload
+- [ ] Make all pages typescript
+- [ ] Add authentication (w/ NextAuth)
+- [ ] Add video upload
 - [ ] Error management (w/ Sentry)
-- [ ] Routing/image page (parallel route)
+- [ ] Routing/report page (parallel route)
 - [ ] Delete button (w/ Server Actions)
 - [ ] Analytics (posthog)
 - [ ] Ratelimiting (upstash)
+- [ ] Learn Storybook and decide to add it or not
