@@ -19,7 +19,7 @@ export default getRequestConfig(async () => {
   console.log(`Detected locale: ${locale}`);
 
   // Ensure the locale is supported, fallback to 'en' if not
-  const supportedLocales = ["en", "tr", "de", "es"]; // Add your supported locales here
+  const supportedLocales = ["en", "tr"]; // Add your supported locales here
   const finalLocale = supportedLocales.includes(locale) ? locale : "en";
 
   return {
