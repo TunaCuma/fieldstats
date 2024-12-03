@@ -4,7 +4,7 @@
 - [x] Scaffold basic UI with mock data
 - [x] Actually set up a database (vercel postgres)
 - [x] Build schema
-- [ ] figure out typescript in react
+- [x] figure out typescript in react
 - [ ] figure out tRPC
 - [ ] Add authentication (w/ NextAuth)
 - [ ] Error management (w/ Sentry)
