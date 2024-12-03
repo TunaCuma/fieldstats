@@ -20,7 +20,7 @@ export const playerRouter = createTRPCRouter({
           name: input.name,
           teamId: input.teamId,
           position: input.position,
-          stats: input.stats || null,
+          stats: input.stats ?? null,
         })
         .returning();
       return newPlayer;
@@ -93,12 +93,12 @@ export const playerRouter = createTRPCRouter({
         .values({
           playerId: input.playerId,
           matchId: input.matchId,
-          positions: input.positions || null,
-          distanceCovered: input.distanceCovered || null,
-          passesCompleted: input.passesCompleted || null,
-          shotsTaken: input.shotsTaken || null,
-          keyEvents: input.keyEvents || null,
-          fieldHeatmap: input.fieldHeatmap || null,
+          positions: input.positions ?? null,
+          distanceCovered: input.distanceCovered ?? null,
+          passesCompleted: input.passesCompleted ?? null,
+          shotsTaken: input.shotsTaken ?? null,
+          keyEvents: input.keyEvents ?? null,
+          fieldHeatmap: input.fieldHeatmap ?? null,
         })
         .returning();
       return newMetrics;

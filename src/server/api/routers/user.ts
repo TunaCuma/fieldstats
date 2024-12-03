@@ -27,7 +27,7 @@ export const userRouter = createTRPCRouter({
         .values({
           name: input.name,
           email: input.email,
-          image: input.image || null,
+          image: input.image ?? null,
         })
         .returning();
       return newUser;
@@ -102,13 +102,13 @@ export const userRouter = createTRPCRouter({
           type: input.type,
           provider: input.provider,
           providerAccountId: input.providerAccountId,
-          refresh_token: input.refresh_token || null,
-          access_token: input.access_token || null,
-          expires_at: input.expires_at || null,
-          token_type: input.token_type || null,
-          scope: input.scope || null,
-          id_token: input.id_token || null,
-          session_state: input.session_state || null,
+          refresh_token: input.refresh_token ?? null,
+          access_token: input.access_token ?? null,
+          expires_at: input.expires_at ?? null,
+          token_type: input.token_type ?? null,
+          scope: input.scope ?? null,
+          id_token: input.id_token ?? null,
+          session_state: input.session_state ?? null,
         })
         .returning();
       return newAccount;

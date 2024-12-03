@@ -20,7 +20,7 @@ export const matchRouter = createTRPCRouter({
           name: input.name,
           date: new Date(input.date),
           uploadedBy: ctx.session.user.id,
-          videoPath: input.videoPath || null,
+          videoPath: input.videoPath ?? null,
           status: input.status,
         })
         .returning();
@@ -100,12 +100,12 @@ export const matchRouter = createTRPCRouter({
         .insert(matchMetrics)
         .values({
           matchId: input.matchId,
-          ballTrackingData: input.ballTrackingData || null,
-          possessionData: input.possessionData || null,
-          ballPossession: input.ballPossession || null,
-          totalPasses: input.totalPasses || null,
-          shotsOnGoal: input.shotsOnGoal || null,
-          totalDistanceCovered: input.totalDistanceCovered || null,
+          ballTrackingData: input.ballTrackingData ?? null,
+          possessionData: input.possessionData ?? null,
+          ballPossession: input.ballPossession ?? null,
+          totalPasses: input.totalPasses ?? null,
+          shotsOnGoal: input.shotsOnGoal ?? null,
+          totalDistanceCovered: input.totalDistanceCovered ?? null,
         })
         .returning();
       return newMetrics;
@@ -142,9 +142,9 @@ export const matchRouter = createTRPCRouter({
           timestamp: new Date(input.timestamp),
           playerId: input.playerId,
           matchId: input.matchId,
-          category: input.category || null,
-          ballLocation: input.ballLocation || null,
-          playerLocation: input.playerLocation || null,
+          category: input.category ?? null,
+          ballLocation: input.ballLocation ?? null,
+          playerLocation: input.playerLocation ?? null,
         })
         .returning();
       return newEvent;
