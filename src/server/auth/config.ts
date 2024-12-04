@@ -63,5 +63,8 @@ export const authConfig = {
         id: user.id,
       },
     }),
+    async redirect({ baseUrl }) {
+      return `${baseUrl}/dashboard`;
+    },
   },
 } satisfies NextAuthConfig;
