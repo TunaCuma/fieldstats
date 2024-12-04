@@ -9,10 +9,11 @@
 - [x] figure out typescript in react
 - [x] figure out tRPC
 - [x] Add authentication (w/ NextAuth)
-- [ ] Learn Storybook and decide to add it or not
 - [ ] Attach database to UI
 - [ ] Add video upload
 - [ ] Make all pages typescript
+- [ ] Add storybook
+- [ ] UI enhancements
 - [ ] Error management (w/ Sentry)
 - [ ] Analytics (posthog)
 - [ ] Ratelimiting (upstash)
