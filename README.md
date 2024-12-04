@@ -8,14 +8,12 @@
 - [x] Build schema
 - [x] figure out typescript in react
 - [x] figure out tRPC
-- [ ] Add authentication (w/ NextAuth)
-- [ ] Error management (w/ Sentry)
+- [x] Add authentication (w/ NextAuth)
 - [ ] Learn Storybook and decide to add it or not
 - [ ] Attach database to UI
-- [ ] Make all pages typescript
 - [ ] Add video upload
-- [ ] Routing/report page (parallel route)
-- [ ] Delete button (w/ Server Actions)
+- [ ] Make all pages typescript
+- [ ] Error management (w/ Sentry)
 - [ ] Analytics (posthog)
 - [ ] Ratelimiting (upstash)
 

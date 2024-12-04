@@ -1,5 +1,6 @@
 import { getRequestConfig } from "next-intl/server";
 import { headers } from "next/headers";
+import { IntlErrorCode } from "next-intl";
 
 export default getRequestConfig(async () => {
   const headersList = await headers();
@@ -23,6 +24,12 @@ export default getRequestConfig(async () => {
   const finalLocale = supportedLocales.includes(locale) ? locale : "en";
 
   return {
+    onError(error) {
+      if (error.code === IntlErrorCode.MISSING_MESSAGE) {
+        // Missing translations are expected and should only log an error
+        console.error(error);
+      }
+    },
     locale: finalLocale,
     messages: (await import(`../../messages/${finalLocale}.json`)).default,
   };

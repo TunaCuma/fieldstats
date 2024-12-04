@@ -330,5 +330,24 @@
     "shotsTitle": "Shots",
     "playerPerformanceTitle": "Player Performance",
     "matchTimelineTitle": "Match Timeline"
+  },
+  "LandingPage": {
+    "title": "Fieldstats",
+    "navDashboard": "Dashboard",
+    "navSignUp": "Sign Up",
+    "heroTitle": "AI-Powered Football Video Analysis",
+    "heroSubtitle": "Transform your small football team's performance with advanced video analysis and actionable insights, in budget.",
+    "heroButton": "Get Started",
+    "featuresTitle": "Why Choose Fieldstats?",
+    "feature1Title": "Advanced AI Analysis",
+    "feature1Description": "Our AI algorithms analyze every aspect of the game, providing detailed insights on player movements, tactics, and team performance.",
+    "feature2Title": "Comprehensive Reports",
+    "feature2Description": "Generate in-depth reports with visualizations and statistics to make data-driven decisions for your team.",
+    "feature3Title": "Easy Video Upload",
+    "feature3Description": "Simply upload your match footage, and our system will process and analyze it, delivering results quickly and efficiently.",
+    "ctaTitle": "Ready to Elevate Your Team's Performance?",
+    "ctaSubtitle": "Join other coaches and analysts who are already using Fieldstats to gain a competitive edge.",
+    "ctaButton": "Get Started",
+    "footer": "© 2024 Fieldstats. All rights reserved."
   }
 }
