@@ -1,21 +1,28 @@
-'use client'
+"use client";
 
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
-import { ChevronRight, Home } from 'lucide-react'
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { ChevronRight, Home } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 export function Breadcrumbs() {
-  const pathname = usePathname()
-  const paths = pathname.split('/').filter(path => path)
+  const pathname = usePathname();
+  const paths = pathname.split("/").filter((path) => path);
 
   const breadcrumbs = [
-    { href: '/', label: 'Dashboard', icon: Home },
+    { href: "/", label: "Dashboard", icon: Home },
     ...paths.map((path, index) => ({
-      href: `/${paths.slice(0, index + 1).join('/')}`,
+      href: `/${paths.slice(0, index + 1).join("/")}`,
       label: path.charAt(0).toUpperCase() + path.slice(1),
-    }))
-  ]
+    })),
+  ];
 
   return (
     <Breadcrumb>
@@ -42,6 +49,5 @@ export function Breadcrumbs() {
         ))}
       </BreadcrumbList>
     </Breadcrumb>
-  )
+  );
 }
-
