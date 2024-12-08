@@ -159,5 +159,22 @@
     "faq2Answer": "Analiz süresi, video uzunluğuna ve kalitesine bağlıdır. Genellikle tam bir maç için 1-2 saat sürer.",
     "faq3Question": "Yükledikten sonra maç detaylarını düzenleyebilir miyim?",
     "faq3Answer": "Evet, maç detaylarını maç sayfasına giderek ve 'Maçı Düzenle'ye tıklayarak düzenleyebilirsiniz."
+  },
+  "newPlayer": {
+    "title": "Yeni Oyuncu Ekle",
+    "formTitle": "Oyuncu Bilgileri",
+    "name": "Adı",
+    "position": "Pozisyon",
+    "dateOfBirth": "Doğum Tarihi",
+    "nationality": "Milliyeti",
+    "height": "Boy",
+    "weight": "Kilo",
+    "team": "Takım",
+    "submit": "Gönder",
+    "selectPosition": "Pozisyon Seçin",
+    "forward": "Forvet",
+    "midfielder": "Orta Saha",
+    "defender": "Defans",
+    "goalkeeper": "Kaleci"
   }
 }

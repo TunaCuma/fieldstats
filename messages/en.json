@@ -351,5 +351,22 @@
     "ctaSubtitle": "Join other coaches and analysts who are already using Fieldstats to gain a competitive edge.",
     "ctaButton": "Get Started",
     "footer": "© 2024 Fieldstats. All rights reserved."
+  },
+  "newPlayer": {
+    "title": "Add New Player",
+    "formTitle": "Player Details",
+    "name": "Name",
+    "position": "Position",
+    "dateOfBirth": "Date of Birth",
+    "nationality": "Nationality",
+    "height": "Height",
+    "weight": "Weight",
+    "team": "Team",
+    "submit": "Submit",
+    "selectPosition": "Select Position",
+    "forward": "Forward",
+    "midfielder": "Midfielder",
+    "defender": "Defender",
+    "goalkeeper": "Goalkeeper"
   }
 }

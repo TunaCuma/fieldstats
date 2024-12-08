@@ -180,9 +180,11 @@ export const players = createTable(
   "player",
   {
     id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
-    name: varchar("name", { length: 255 }),
-    teamId: integer("team_id").notNull(),
-    position: varchar("position", { length: 255 }).notNull(),
+    name: varchar("name", { length: 255 }).notNull(),
+    image: varchar("image", { length: 255 }),
+    jerseyNumber: integer("jersey_number"),
+    teamId: integer("team_id"),
+    position: varchar("position", { length: 255 }),
     stats: text("stats"),
     createdBy: varchar("created_by", { length: 255 })
       .notNull()
@@ -199,6 +201,7 @@ export const playersRelations = relations(players, ({ one }) => ({
     fields: [players.createdBy],
     references: [users.id],
   }),
+  team: one(teams, { fields: [players.teamId], references: [teams.id] }),
 }));
 
 /** PLAYER METRICS TABLE */
@@ -259,6 +262,14 @@ export const teams = createTable(
     createdByIdx: index("team_created_by_idx").on(team.createdBy),
   }),
 );
+
+export const teamsRelations = relations(teams, ({ one, many }) => ({
+  createdByUser: one(users, {
+    fields: [teams.createdBy],
+    references: [users.id],
+  }),
+  players: many(players),
+}));
 
 /** EVENTS TABLE */
 export const events = createTable(
