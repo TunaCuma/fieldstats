@@ -1,6 +1,7 @@
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { type DefaultSession, type NextAuthConfig } from "next-auth";
 import DiscordProvider from "next-auth/providers/discord";
+import GoogleProvider from "next-auth/providers/google";
 
 import { db } from "@/server/db";
 import {
@@ -38,7 +39,7 @@ declare module "next-auth" {
  */
 export const authConfig = {
   providers: [
-    DiscordProvider,
+    GoogleProvider,
     /**
      * ...add more providers here.
      *
@@ -66,5 +67,8 @@ export const authConfig = {
     async redirect({ baseUrl }) {
       return `${baseUrl}/dashboard`;
     },
+  },
+  theme: {
+    logo: "https://utfs.io/f/r2YA3i8B3SRqZMW3qlLKkn2ESYmPIl5URN96FcsBeQHaogxr",
   },
 } satisfies NextAuthConfig;

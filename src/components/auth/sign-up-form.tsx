@@ -17,6 +17,19 @@ export function SignUpForm() {
           </Button>
         </div>
       </form>
+
+      <form
+        action={async () => {
+          "use server";
+          await signIn("google");
+        }}
+      >
+        <div className="grid gap-2">
+          <Button variant="outline" type="submit">
+            Sign Up with Google
+          </Button>
+        </div>
+      </form>
     </div>
   );
 }

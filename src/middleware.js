@@ -21,7 +21,11 @@ export function middleware(request) {
   }
 
   // Handle subdomain routing
-  if (hostname === "app.fieldstats.pro" || hostname === "app.localhost:3000") {
+  if (
+    hostname === "app.fieldstats.pro" ||
+    hostname === "app.localhost:3000" ||
+    hostname === "localhost:4000"
+  ) {
     url.pathname = `/app${url.pathname}`; // Serve content from app/app folder
   } else if (hostname === "fieldstats.pro" || hostname === "localhost:3000") {
     url.pathname = `/home${url.pathname}`; // Serve content from app/home folder

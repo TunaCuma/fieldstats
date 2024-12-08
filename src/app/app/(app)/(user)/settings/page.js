@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { DarkModeToggle } from "@/components/DarkModeToggle";
+import { routes } from "@/constants/routes";
 
 export default function Settings() {
   const t = useTranslations();
@@ -78,6 +80,16 @@ export default function Settings() {
           </CardContent>
         </Card>
 
+        <Card>
+          <CardHeader>
+            <CardTitle>{t("settings.account")}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Link href={routes.signout}>
+              <Button variant="secondary">{t("settings.signout")}</Button>
+            </Link>
+          </CardContent>
+        </Card>
         <Card>
           <CardHeader>
             <CardTitle>{t("settings.dangerZone")}</CardTitle>

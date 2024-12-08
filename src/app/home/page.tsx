@@ -15,7 +15,7 @@ export default function LandingPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="fixed top-0 w-full bg-zinc-400/50 py-4 text-primary-foreground shadow-md">
+      <header className="fixed top-0 w-full bg-green-600/70 py-4 text-primary-foreground shadow-md">
         <div className="container mx-auto flex items-center justify-between">
           <h1 className="text-2xl font-bold">{t("title")}</h1>
           <nav>
@@ -27,7 +27,7 @@ export default function LandingPage() {
       </header>
 
       <main className="flex flex-grow flex-col gap-20">
-        <section className="flex h-screen flex-col justify-center bg-gradient-to-b from-zinc-400 to-background py-20">
+        <section className="flex h-screen flex-col justify-center bg-gradient-to-b from-green-600 to-background py-20">
           <div className="container mx-auto text-center">
             <h2 className="mb-6 text-4xl font-bold">{t("heroTitle")}</h2>
             <p className="mx-auto mb-8 max-w-2xl text-xl">

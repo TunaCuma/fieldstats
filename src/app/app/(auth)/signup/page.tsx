@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
 import Link from "next/link";
 import { SignUpForm } from "@/components/auth/sign-up-form";
+import { routes } from "@/constants/routes";
 
 export const metadata: Metadata = {
   title: "Sign Up",
@@ -22,7 +23,7 @@ export default function SignUpPage() {
         <SignUpForm />
         <p className="px-8 text-center text-sm text-muted-foreground">
           <Link
-            href="/signin"
+            href={routes.signin}
             className="hover:text-brand underline underline-offset-4"
           >
             Already have an account? Sign In

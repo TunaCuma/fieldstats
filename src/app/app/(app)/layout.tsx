@@ -2,6 +2,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { auth } from "@/server/auth";
 import { redirect } from "next/navigation";
+import { routes } from "@/constants/routes";
 
 export default async function MainLayout({
   children,
@@ -12,7 +13,7 @@ export default async function MainLayout({
 
   if (!session) {
     // Redirect to sign-in if not authenticated
-    redirect("/signin");
+    redirect(routes.signin);
   }
 
   return (

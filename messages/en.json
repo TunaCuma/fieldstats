@@ -143,7 +143,9 @@
     "english": "English",
     "turkish": "Turkish",
     "dangerZone": "Danger Zone",
-    "deleteAccount": "Delete Account"
+    "deleteAccount": "Delete Account",
+    "signout": "Sign Out",
+    "account": "Account"
   },
   "help": {
     "title": "Help Center",
