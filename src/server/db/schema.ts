@@ -19,6 +19,7 @@ import { type AdapterAccount } from "next-auth/adapters";
  */
 export const createTable = pgTableCreator((name) => `fieldstats_${name}`);
 
+/** USERS TABLE */
 export const users = createTable("user", {
   id: varchar("id", { length: 255 })
     .notNull()
@@ -37,6 +38,7 @@ export const usersRelations = relations(users, ({ many }) => ({
   accounts: many(accounts),
 }));
 
+/** ACCOUNTS TABLE */
 export const accounts = createTable(
   "account",
   {
@@ -70,6 +72,7 @@ export const accountsRelations = relations(accounts, ({ one }) => ({
   user: one(users, { fields: [accounts.userId], references: [users.id] }),
 }));
 
+/** SESSIONS TABLE */
 export const sessions = createTable(
   "session",
   {
@@ -93,6 +96,7 @@ export const sessionsRelations = relations(sessions, ({ one }) => ({
   user: one(users, { fields: [sessions.userId], references: [users.id] }),
 }));
 
+/** VERIFICATION TOKENS TABLE */
 export const verificationTokens = createTable(
   "verification_token",
   {
@@ -108,7 +112,7 @@ export const verificationTokens = createTable(
   }),
 );
 
-// Match Table
+/** MATCHES TABLE */
 export const matches = createTable(
   "match",
   {
@@ -136,7 +140,7 @@ export const matchesRelations = relations(matches, ({ one, many }) => ({
   events: many(events),
 }));
 
-// MatchMetrics Table
+/** MATCH METRICS TABLE */
 export const matchMetrics = createTable(
   "match_metrics",
   {
@@ -150,9 +154,13 @@ export const matchMetrics = createTable(
     totalPasses: integer("total_passes"),
     shotsOnGoal: integer("shots_on_goal"),
     totalDistanceCovered: real("total_distance_covered"),
+    createdBy: varchar("created_by", { length: 255 })
+      .notNull()
+      .references(() => users.id),
   },
   (metrics) => ({
     matchIdIdx: index("match_metrics_match_id_idx").on(metrics.matchId),
+    createdByIdx: index("match_metrics_created_by_idx").on(metrics.createdBy),
   }),
 );
 
@@ -161,9 +169,13 @@ export const matchMetricsRelations = relations(matchMetrics, ({ one }) => ({
     fields: [matchMetrics.matchId],
     references: [matches.id],
   }),
+  createdByUser: one(users, {
+    fields: [matchMetrics.createdBy],
+    references: [users.id],
+  }),
 }));
 
-// Player Table
+/** PLAYERS TABLE */
 export const players = createTable(
   "player",
   {
@@ -172,13 +184,24 @@ export const players = createTable(
     teamId: integer("team_id").notNull(),
     position: varchar("position", { length: 255 }).notNull(),
     stats: text("stats"),
+    createdBy: varchar("created_by", { length: 255 })
+      .notNull()
+      .references(() => users.id),
   },
   (player) => ({
     teamIdIdx: index("player_team_id_idx").on(player.teamId),
+    createdByIdx: index("player_created_by_idx").on(player.createdBy),
   }),
 );
 
-// PlayerMetrics Table
+export const playersRelations = relations(players, ({ one }) => ({
+  createdByUser: one(users, {
+    fields: [players.createdBy],
+    references: [users.id],
+  }),
+}));
+
+/** PLAYER METRICS TABLE */
 export const playerMetrics = createTable(
   "player_metrics",
   {
@@ -195,10 +218,14 @@ export const playerMetrics = createTable(
     shotsTaken: integer("shots_taken"),
     keyEvents: text("key_events"),
     fieldHeatmap: text("field_heatmap"),
+    createdBy: varchar("created_by", { length: 255 })
+      .notNull()
+      .references(() => users.id),
   },
   (metrics) => ({
     playerIdIdx: index("player_metrics_player_id_idx").on(metrics.playerId),
     matchIdIdx: index("player_metrics_match_id_idx").on(metrics.matchId),
+    createdByIdx: index("player_metrics_created_by_idx").on(metrics.createdBy),
   }),
 );
 
@@ -211,16 +238,29 @@ export const playerMetricsRelations = relations(playerMetrics, ({ one }) => ({
     fields: [playerMetrics.matchId],
     references: [matches.id],
   }),
+  createdByUser: one(users, {
+    fields: [playerMetrics.createdBy],
+    references: [users.id],
+  }),
 }));
 
-// Team Table
-export const teams = createTable("team", {
-  id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
-  name: varchar("name", { length: 255 }),
-  coach: varchar("coach", { length: 255 }).notNull(),
-});
+/** TEAMS TABLE */
+export const teams = createTable(
+  "team",
+  {
+    id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
+    name: varchar("name", { length: 255 }),
+    coach: varchar("coach", { length: 255 }).notNull(),
+    createdBy: varchar("created_by", { length: 255 })
+      .notNull()
+      .references(() => users.id),
+  },
+  (team) => ({
+    createdByIdx: index("team_created_by_idx").on(team.createdBy),
+  }),
+);
 
-// Event Table
+/** EVENTS TABLE */
 export const events = createTable(
   "event",
   {
@@ -236,14 +276,22 @@ export const events = createTable(
     category: varchar("category", { length: 255 }),
     ballLocation: varchar("ball_location", { length: 255 }),
     playerLocation: varchar("player_location", { length: 255 }),
+    createdBy: varchar("created_by", { length: 255 })
+      .notNull()
+      .references(() => users.id),
   },
   (event) => ({
     playerIdIdx: index("event_player_id_idx").on(event.playerId),
     matchIdIdx: index("event_match_id_idx").on(event.matchId),
+    createdByIdx: index("event_created_by_idx").on(event.createdBy),
   }),
 );
 
 export const eventsRelations = relations(events, ({ one }) => ({
   player: one(players, { fields: [events.playerId], references: [players.id] }),
   match: one(matches, { fields: [events.matchId], references: [matches.id] }),
+  createdByUser: one(users, {
+    fields: [events.createdBy],
+    references: [users.id],
+  }),
 }));
