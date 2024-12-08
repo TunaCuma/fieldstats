@@ -1,5 +1,5 @@
-import { Sidebar } from "@/components/Sidebar";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Sidebar } from "@/components/layout/Sidebar";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { auth } from "@/server/auth";
 import { redirect } from "next/navigation";
 import { routes } from "@/constants/routes";

@@ -25,7 +25,6 @@ const SidebarItems = [
   { name: "matches", href: "/matches", icon: BarChart2 },
   { name: "teams", href: "/teams", icon: Users },
   { name: "players", href: "/players", icon: Users },
-  { name: "profile", href: "/profile", icon: User },
   { name: "settings", href: "/settings", icon: Settings },
   { name: "help", href: "/help", icon: HelpCircle },
 ];

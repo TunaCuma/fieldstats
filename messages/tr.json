@@ -146,7 +146,8 @@
     "deleteAccount": "Hesabı Sil",
     "signout": "Çıkış Yap",
     "account": "Hesap",
-    "languageSelector": "Uygulama Dili"
+    "languageSelector": "Uygulama Dili",
+    "searchPlaceholder": "Ayar ara..."
   },
   "help": {
     "title": "Yardım Merkezi",

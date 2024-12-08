@@ -3,10 +3,10 @@ import { headers, cookies } from "next/headers";
 import { IntlErrorCode } from "next-intl";
 
 export default getRequestConfig(async () => {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const savedLocale = cookieStore.get("NEXT_LOCALE")?.value; // Read from the cookie
 
-  const headersList = headers();
+  const headersList = await headers();
   const acceptLanguage = headersList.get("Accept-Language");
 
   // Function to parse the Accept-Language header

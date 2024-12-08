@@ -140,13 +140,12 @@
     "theme": "Theme",
     "languagePreferences": "Language Preferences",
     "selectLanguage": "Select Language",
-    "english": "English",
-    "turkish": "Turkish",
     "dangerZone": "Danger Zone",
     "deleteAccount": "Delete Account",
     "signout": "Sign Out",
     "account": "Account",
-    "languageSelector": "App Language"
+    "languageSelector": "App Language",
+    "searchPlaceholder": "Search settings..."
   },
   "help": {
     "title": "Help Center",

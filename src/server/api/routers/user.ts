@@ -10,6 +10,7 @@ import {
   sessions,
   verificationTokens,
 } from "@/server/db/schema";
+import { eq } from "drizzle-orm";
 
 export const userRouter = createTRPCRouter({
   // Public procedure to create a new user
@@ -36,7 +37,7 @@ export const userRouter = createTRPCRouter({
   // Protected procedure to get the current user's profile
   getProfile: protectedProcedure.query(async ({ ctx }) => {
     const user = await ctx.db.query.users.findFirst({
-      where: (user) => user.id.equals(ctx.session.user.id),
+      where: eq(users.id, ctx.session.user.id),
     });
     return user ?? null;
   }),

@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/contexts/ThemeProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { TRPCReactProvider } from "@/trpc/react";
@@ -26,7 +26,7 @@ export default async function PageLayout({
   return (
     <html
       lang={locale}
-      className={`${GeistSans.variable} ${inter.className}`}
+      className={`bg-black ${GeistSans.variable} ${inter.className}`}
       suppressHydrationWarning
     >
       <body>

@@ -10,6 +10,14 @@
 - [x] figure out tRPC
 - [x] Add authentication (w/ NextAuth)
 - [ ] Attach database to UI
+  - [ ] Dashboard
+  - [ ] Upload
+  - [ ] Matches
+  - [ ] Teams
+  - [ ] Players
+  - [ ] Profile
+  - [x] Settings
+  - [x] Help
 - [ ] Add video upload
 - [ ] Make all pages typescript
 - [ ] Add storybook
