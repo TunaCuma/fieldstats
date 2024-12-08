@@ -86,7 +86,7 @@ export default function Settings() {
             <CardTitle>{t("settings.appearanceSettings")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex min-h-[3rem] items-center justify-between">
               <Label htmlFor="dark-mode">{t("settings.theme")}</Label>
               <DarkModeToggle />
             </div>
