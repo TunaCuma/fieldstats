@@ -1,9 +1,12 @@
 import { getRequestConfig } from "next-intl/server";
-import { headers } from "next/headers";
+import { headers, cookies } from "next/headers";
 import { IntlErrorCode } from "next-intl";
 
 export default getRequestConfig(async () => {
-  const headersList = await headers();
+  const cookieStore = cookies();
+  const savedLocale = cookieStore.get("NEXT_LOCALE")?.value; // Read from the cookie
+
+  const headersList = headers();
   const acceptLanguage = headersList.get("Accept-Language");
 
   // Function to parse the Accept-Language header
@@ -14,8 +17,10 @@ export default getRequestConfig(async () => {
     return languages[0].substring(0, 2); // Get the first two characters of the first language
   };
 
-  // Get the locale from the Accept-Language header, defaulting to 'en' if not available
-  const locale = acceptLanguage ? parseAcceptLanguage(acceptLanguage) : "en";
+  // Get the locale from the cookie or Accept-Language header, defaulting to 'en'
+  const locale =
+    savedLocale ||
+    (acceptLanguage ? parseAcceptLanguage(acceptLanguage) : "en");
 
   console.log(`Detected locale: ${locale}`);
 

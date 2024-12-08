@@ -137,7 +137,7 @@
     "notificationSettings": "Bildirim Ayarları",
     "enableNotifications": "Bildirimleri Etkinleştir",
     "appearanceSettings": "Görünüm Ayarları",
-    "darkMode": "Karanlık Mod",
+    "theme": "Tema",
     "languagePreferences": "Dil Tercihleri",
     "selectLanguage": "Dil Seç",
     "english": "İngilizce",
@@ -145,7 +145,8 @@
     "dangerZone": "Tehlike Bölgesi",
     "deleteAccount": "Hesabı Sil",
     "signout": "Çıkış Yap",
-    "account": "Hesap"
+    "account": "Hesap",
+    "languageSelector": "Uygulama Dili"
   },
   "help": {
     "title": "Yardım Merkezi",

@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { DarkModeToggle } from "@/components/DarkModeToggle";
 import { routes } from "@/constants/routes";
+import LanguageSelector from "@/components/LanguageSelector";
 
 export default function Settings() {
   const t = useTranslations();
@@ -25,56 +26,68 @@ export default function Settings() {
       <h1 className="mb-6 text-3xl font-bold">{t("settings.title")}</h1>
 
       <div className="space-y-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("settings.accountSettings")}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <Label htmlFor="current-password">
-                {t("settings.currentPassword")}
-              </Label>
-              <Input id="current-password" type="password" />
-            </div>
-            <div>
-              <Label htmlFor="new-password">{t("settings.newPassword")}</Label>
-              <Input id="new-password" type="password" />
-            </div>
-            <div>
-              <Label htmlFor="confirm-password">
-                {t("settings.confirmPassword")}
-              </Label>
-              <Input id="confirm-password" type="password" />
-            </div>
-            <Button>{t("settings.changePassword")}</Button>
-          </CardContent>
-        </Card>
+        {
+          // <Card>
+          //   <CardHeader>
+          //     <CardTitle>{t("settings.accountSettings")}</CardTitle>
+          //   </CardHeader>
+          //   <CardContent className="space-y-4">
+          //     <div>
+          //       <Label htmlFor="current-password">
+          //         {t("settings.currentPassword")}
+          //       </Label>
+          //       <Input id="current-password" type="password" />
+          //     </div>
+          //     <div>
+          //       <Label htmlFor="new-password">{t("settings.newPassword")}</Label>
+          //       <Input id="new-password" type="password" />
+          //     </div>
+          //     <div>
+          //       <Label htmlFor="confirm-password">
+          //         {t("settings.confirmPassword")}
+          //       </Label>
+          //       <Input id="confirm-password" type="password" />
+          //     </div>
+          //     <Button>{t("settings.changePassword")}</Button>
+          //   </CardContent>
+          // </Card>
+        }
+
+        {
+          // <Card>
+          //   <CardHeader>
+          //     <CardTitle>{t("settings.notificationSettings")}</CardTitle>
+          //   </CardHeader>
+          //   <CardContent className="space-y-4">
+          //     <div className="flex items-center justify-between">
+          //       <Label htmlFor="notifications">
+          //         {t("settings.enableNotifications")}
+          //       </Label>
+          //       <Switch
+          //         id="notifications"
+          //         checked={notifications}
+          //         onCheckedChange={setNotifications}
+          //       />
+          //     </div>
+          //   </CardContent>
+          // </Card>
+        }
 
         <Card>
           <CardHeader>
-            <CardTitle>{t("settings.notificationSettings")}</CardTitle>
+            <CardTitle>{t("settings.languageSelector")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
-              <Label htmlFor="notifications">
-                {t("settings.enableNotifications")}
-              </Label>
-              <Switch
-                id="notifications"
-                checked={notifications}
-                onCheckedChange={setNotifications}
-              />
-            </div>
+            <LanguageSelector />
           </CardContent>
         </Card>
-
         <Card>
           <CardHeader>
             <CardTitle>{t("settings.appearanceSettings")}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
-              <Label htmlFor="dark-mode">{t("settings.darkMode")}</Label>
+              <Label htmlFor="dark-mode">{t("settings.theme")}</Label>
               <DarkModeToggle />
             </div>
           </CardContent>
@@ -88,16 +101,6 @@ export default function Settings() {
             <Link href={routes.signout}>
               <Button variant="secondary">{t("settings.signout")}</Button>
             </Link>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("settings.dangerZone")}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Button variant="destructive" onClick={handleDeleteAccount}>
-              {t("settings.deleteAccount")}
-            </Button>
           </CardContent>
         </Card>
       </div>

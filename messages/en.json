@@ -137,7 +137,7 @@
     "notificationSettings": "Notification Settings",
     "enableNotifications": "Enable Notifications",
     "appearanceSettings": "Appearance Settings",
-    "darkMode": "Dark Mode",
+    "theme": "Theme",
     "languagePreferences": "Language Preferences",
     "selectLanguage": "Select Language",
     "english": "English",
@@ -145,7 +145,8 @@
     "dangerZone": "Danger Zone",
     "deleteAccount": "Delete Account",
     "signout": "Sign Out",
-    "account": "Account"
+    "account": "Account",
+    "languageSelector": "App Language"
   },
   "help": {
     "title": "Help Center",
