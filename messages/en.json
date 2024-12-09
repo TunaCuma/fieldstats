@@ -367,6 +367,7 @@
     "forward": "Forward",
     "midfielder": "Midfielder",
     "defender": "Defender",
-    "goalkeeper": "Goalkeeper"
+    "goalkeeper": "Goalkeeper",
+    "jerseyNumber": "Jersey Number"
   }
 }

@@ -8,24 +8,40 @@ export const playerRouter = createTRPCRouter({
   createPlayer: protectedProcedure
     .input(
       z.object({
-        name: z.string().min(1),
-        teamId: z.number(),
-        position: z.string().min(1),
-        stats: z.string().optional(),
-        createdBy: z.string().min(1), // Added createdBy as required
+        name: z.string().min(1), // Required
+        teamId: z.number().optional(), // Optional
+        position: z.string().optional(), // Optional
+        jerseyNumber: z.number().min(1), // Required
+        dateOfBirth: z.string().optional(), // Optional (ensure format)
+        height: z.number().optional(), // Optional
+        weight: z.number().optional(), // Optional
       }),
     )
     .mutation(async ({ ctx, input }) => {
+      // Filter out undefined fields from input
+      const sanitizedInput = {
+        ...input,
+        teamId: input.teamId ?? null,
+        position: input.position ?? null,
+        dateOfBirth: input.dateOfBirth ?? null,
+        height: input.height ?? null,
+        weight: input.weight ?? null,
+      };
+
       const newPlayer = await ctx.db
         .insert(players)
         .values({
-          name: input.name,
-          teamId: input.teamId,
-          position: input.position,
-          stats: input.stats ?? null,
-          createdBy: input.createdBy, // Added createdBy field
+          name: sanitizedInput.name,
+          teamId: sanitizedInput.teamId,
+          position: sanitizedInput.position,
+          jerseyNumber: sanitizedInput.jerseyNumber,
+          dateOfBirth: sanitizedInput.dateOfBirth,
+          height: sanitizedInput.height,
+          weight: sanitizedInput.weight,
+          createdBy: ctx.session.user.id,
         })
         .returning();
+
       return newPlayer[0]; // Return the first (and only) item in the returning array
     }),
 

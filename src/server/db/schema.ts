@@ -8,6 +8,7 @@ import {
   text,
   timestamp,
   varchar,
+  date,
 } from "drizzle-orm/pg-core";
 import { type AdapterAccount } from "next-auth/adapters";
 
@@ -183,8 +184,11 @@ export const players = createTable(
     name: varchar("name", { length: 255 }).notNull(),
     image: varchar("image", { length: 255 }),
     jerseyNumber: integer("jersey_number"),
-    teamId: integer("team_id"),
+    teamId: integer("team_id").references(() => teams.id),
     position: varchar("position", { length: 255 }),
+    dateOfBirth: date("date_of_birth"),
+    height: integer("height"),
+    weight: integer("weight"),
     stats: text("stats"),
     createdBy: varchar("created_by", { length: 255 })
       .notNull()

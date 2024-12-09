@@ -44,12 +44,10 @@ export default async function PlayersList() {
                   </AvatarFallback>
                 </Avatar>
               </TableCell>
-              <TableCell className="font-medium">{player.name}</TableCell>
+              <TableCell className="font-semibold">{player.name}</TableCell>
               <TableCell>{player.team?.name ?? "N/A"}</TableCell>
               <TableCell>{player.position}</TableCell>
-              <TableCell className="text-right">
-                {player.jerseyNumber}
-              </TableCell>
+              <TableCell>{player.jerseyNumber}</TableCell>
             </TableRow>
           ))}
           {players.length === 0 && (

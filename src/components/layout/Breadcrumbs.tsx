@@ -24,6 +24,8 @@ export function Breadcrumbs() {
     })),
   ];
 
+  // TODO addd localization
+
   return (
     <Breadcrumb>
       <BreadcrumbList>

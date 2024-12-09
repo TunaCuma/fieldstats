@@ -175,6 +175,7 @@
     "forward": "Forvet",
     "midfielder": "Orta Saha",
     "defender": "Defans",
-    "goalkeeper": "Kaleci"
+    "goalkeeper": "Kaleci",
+    "jerseyNumber": "Forma Numarası"
   }
 }
