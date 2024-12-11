@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import createPlayer from "./createPlayer";
+import createPlayer from "./_actions/createPlayerAction";
 
 export default function NewPlayer() {
   const t = useTranslations();

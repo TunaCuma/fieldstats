@@ -2,9 +2,9 @@
 import { TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User } from "lucide-react";
-import { fetchPlayers } from "./fetchPlayers";
+import { fetchPlayers } from "./_actions/fetchPlayersAction";
 import { useState, useEffect } from "react";
-import { type PlayerType } from "@/types/playerType";
+import { type PlayerType } from "@/data-access/players/playerTypes";
 
 export default function PlayersTableBody() {
   // const players = await api.player.getPlayers();

@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import PlayersList from "@/components/players/PlayersList";
+import PlayersList from "./PlayersList";
 // import PlayerControls from "@/components/players/PlayerControls";
 
 export default function Players() {

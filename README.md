@@ -26,6 +26,11 @@
 - [ ] Analytics (posthog)
 - [ ] Ratelimiting (upstash)
 
+add debounce to searches
+add d3.js
+we will use react-hook-form for forms
+we will use tanstack table for data tables
+
 ## **Dependencies**
 
 ### **Core Libraries**
