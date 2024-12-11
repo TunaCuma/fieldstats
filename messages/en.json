@@ -99,7 +99,23 @@
     "position": "Position",
     "team": "Team",
     "viewDetails": "View Details",
-    "noPlayers": "No players found"
+    "noPlayers": "No players found",
+    "filters": {
+      "all": "All",
+      "forwards": "Forwards",
+      "midfielders": "Midfielders",
+      "defenders": "Defenders",
+      "goalkeepers": "Goalkeepers"
+    },
+    "sort": {
+      "name": "Name",
+      "position": "Position",
+      "age": "Age"
+    },
+    "list": {
+      "sortingBy": "Sorting by",
+      "filteringBy": "Filtering by"
+    }
   },
   "playerDetails": {
     "title": "Player Details: {{playerName}}",
@@ -368,6 +384,13 @@
     "midfielder": "Midfielder",
     "defender": "Defender",
     "goalkeeper": "Goalkeeper",
+    "jerseyNumber": "Jersey Number"
+  },
+  "playersTable": {
+    "avatar": "Avatar",
+    "name": "Name",
+    "team": "Team",
+    "position": "Position",
     "jerseyNumber": "Jersey Number"
   }
 }

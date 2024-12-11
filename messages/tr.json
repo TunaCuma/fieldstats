@@ -99,7 +99,23 @@
     "position": "Pozisyon",
     "team": "Takım",
     "viewDetails": "Detayları Gör",
-    "noPlayers": "Oyuncu bulunamadı"
+    "noPlayers": "Oyuncu bulunamadı",
+    "filters": {
+      "all": "All",
+      "forwards": "Forwards",
+      "midfielders": "Midfielders",
+      "defenders": "Defenders",
+      "goalkeepers": "Goalkeepers"
+    },
+    "sort": {
+      "name": "Name",
+      "position": "Position",
+      "age": "Age"
+    },
+    "list": {
+      "sortingBy": "Sorting by",
+      "filteringBy": "Filtering by"
+    }
   },
   "playerDetails": {
     "title": "Oyuncu Detayları: {{playerName}}",
@@ -176,6 +192,13 @@
     "midfielder": "Orta Saha",
     "defender": "Defans",
     "goalkeeper": "Kaleci",
+    "jerseyNumber": "Forma Numarası"
+  },
+  "playersTable": {
+    "avatar": "Resim",
+    "name": "Oyuncu Adı",
+    "team": "Takım",
+    "position": "Pozisyon",
     "jerseyNumber": "Forma Numarası"
   }
 }
