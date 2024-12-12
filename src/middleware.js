@@ -4,17 +4,19 @@ export function middleware(request) {
   const url = request.nextUrl.clone();
   const hostname = request.headers.get("host");
 
-  // Define paths that should not be rewritten
   const excludedPaths = [
     /^\/_next\//, // Next.js internal files
     /^\/api\//, // API routes
     /^\/static\//, // Static assets
     /^\/favicon\.ico$/, // Favicon
     /^\/manifest\.json$/, // Manifest
+    /^\/[a-zA-Z0-9-_]+\.(svg)$/,
   ];
-
   // Check if the request path matches any excluded paths
   const isExcluded = excludedPaths.some((regex) => regex.test(url.pathname));
+
+  console.log("Requested Path:", url.pathname);
+  console.log("Is Excluded:", isExcluded);
 
   if (isExcluded) {
     return NextResponse.next(); // Do not rewrite
