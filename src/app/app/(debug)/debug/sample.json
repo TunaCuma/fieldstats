@@ -1,0 +1,117 @@
+{
+  "width": 640.0,
+  "height": 480.0,
+  "axes": [
+    {
+      "bbox": [0.125, 0.11, 0.775, 0.77],
+      "xlim": [-0.5, 10],
+      "ylim": [0, 10],
+      "xdomain": [-0.2, 10],
+      "ydomain": [0.0, 10],
+      "xscale": "linear",
+      "yscale": "linear",
+      "axes": [
+        {
+          "position": "bottom",
+          "nticks": 11,
+          "tickvalues": null,
+          "tickformat_formatter": "",
+          "tickformat": null,
+          "scale": "linear",
+          "fontsize": 10.0,
+          "grid": {
+            "gridOn": false
+          },
+          "visible": true
+        },
+        {
+          "position": "left",
+          "nticks": 11,
+          "tickvalues": null,
+          "tickformat_formatter": "",
+          "tickformat": null,
+          "scale": "linear",
+          "fontsize": 10.0,
+          "grid": {
+            "gridOn": false
+          },
+          "visible": true
+        }
+      ],
+      "axesbg": "#FFFFFF",
+      "axesbgalpha": null,
+      "zoomable": true,
+      "id": "el91906139874005984112",
+      "lines": [
+        {
+          "data": "data01",
+          "xindex": 0,
+          "yindex": 1,
+          "coordinates": "data",
+          "id": "el91906139873968544448",
+          "color": "#000000",
+          "linewidth": 1.5,
+          "dasharray": "none",
+          "alpha": 1,
+          "zorder": 2,
+          "drawstyle": "default"
+        }
+      ],
+      "paths": [],
+      "markers": [
+        {
+          "data": "data01",
+          "xindex": 0,
+          "yindex": 1,
+          "coordinates": "data",
+          "id": "el91906139873968544448pts",
+          "facecolor": "#000000",
+          "edgecolor": "#FFFFFF",
+          "edgewidth": 5,
+          "alpha": 1,
+          "zorder": 2,
+          "markerpath": [
+            [
+              [-10.0, 10.0],
+              [10.0, 10.0],
+              [10.0, -10.0],
+              [-10.0, -10.0]
+            ],
+            ["M", "L", "L", "L", "Z"]
+          ]
+        }
+      ],
+      "texts": [],
+      "collections": [],
+      "images": [],
+      "sharex": [],
+      "sharey": []
+    }
+  ],
+  "data": {
+    "data01": [
+      [0.0, 6.0],
+      [1.0, 2.0],
+      [2.0, 8.0],
+      [3.0, 3.0],
+      [4.0, 0.0],
+      [5.0, 7.0]
+    ]
+  },
+  "id": "el91906139874196422128",
+  "plugins": [
+    {
+      "type": "reset"
+    },
+    {
+      "type": "zoom",
+      "button": true,
+      "enabled": false
+    },
+    {
+      "type": "boxzoom",
+      "button": true,
+      "enabled": false
+    }
+  ]
+}
