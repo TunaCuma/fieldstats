@@ -30,6 +30,7 @@ add debounce to searches
 add d3.js
 we will use react-hook-form for forms
 we will use tanstack table for data tables
+https://golden-layout.com/ keep in mind for when making an app ui
 
 ## **Dependencies**
 

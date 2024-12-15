@@ -14,6 +14,25 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api/python/:path*",
+        destination: "http://127.0.0.1:5328/:path*",
+      },
+      process.env.PORT === "4000"
+        ? {
+          source: "/:path*",
+          destination: "/app/:path*",
+          has: [{ type: "host", value: "localhost" }],
+        }
+        : {
+          source: "/:path*",
+          destination: "/home/:path*",
+          has: [{ type: "host", value: "localhost" }],
+        },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

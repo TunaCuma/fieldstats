@@ -4,7 +4,7 @@ const SOLID_COLOR = "#2d6a4f";
 const STRIPED_COLOR_1 = "#2d7a3f";
 const STRIPED_COLOR_2 = "#2d6f3f";
 
-interface PassData {
+export interface PassData {
   id: number | string;
   from: [number, number]; // Percentage coordinates: [0 to 1, 0 to 1]
   to: [number, number];
@@ -25,7 +25,7 @@ const FootballPasses: FC<FootballPassesProps> = ({
 }) => {
   // Real-world standard dimensions (in meters)
   const REAL_LENGTH = 105;
-  const REAL_WIDTH = 68;
+  const REAL_WIDTH = 70;
   const scale = size / REAL_LENGTH;
 
   const pitchWidthPx = size;

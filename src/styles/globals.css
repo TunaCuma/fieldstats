@@ -64,3 +64,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+g.mpld3-yaxis,
+g.mpld3-xaxis {
+  display: none;
+}
+
+g.mpld3-baseaxes:not(:first-of-type) {
+  display: none;
+}
+
+svg.mpld3-toolbar g {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
