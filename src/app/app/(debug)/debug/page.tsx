@@ -6,7 +6,7 @@ import FootballArrows from "@/components/graphs/FootballArrows";
 import { fetchJson } from "./figure-fetch-action";
 import { useEffect, useState } from "react";
 import FigureTools from "./FigureTools";
-import FootballVisualizer from "@/components/graphs/FootballVisualizer";
+import PlayerVisualization from "@/components/graphs/PlayerVisualization";
 
 const sampleData: PassData[] = [
   {
@@ -38,43 +38,27 @@ function App() {
 
   return (
     <>
-      <div className="mx-auto grid w-full grid-cols-2 items-center justify-center gap-2">
+      <div className="mx-auto flex flex-col items-center gap-2">
         <div className="flex flex-col items-center gap-4">
-          <div className="flex flex-col items-center gap-4">
-            <FootballVisualizer />
-          </div>
-          <div className="grid grid-cols-2 items-center justify-center gap-2">
-            {data ? (
-              <>
-                <Figure className="size-96" id="mpld3-figure" _json={data} />
-                <FigureTools containerId="mpld3-figure" />
-              </>
-            ) : (
-              <p>Loading...</p>
-            )}
-            {data2 ? (
-              <>
-                <Figure className="size-96" id="mpld3-figure2" _json={data2} />
-                <FigureTools containerId="mpld3-figure2" />
-              </>
-            ) : (
-              <p>Loading...</p>
-            )}
-          </div>
-          <div className="relative">
-            <FootballPitch size={size} grassPattern="striped" />
-            <svg
-              className="absolute top-0"
-              width={size}
-              height={REAL_WIDTH * scale}
-            >
-              <FootballArrows
-                data={sampleData}
-                pitchWidthPx={size}
-                pitchHeightPx={REAL_WIDTH * scale}
-              />
-            </svg>
-          </div>
+          <PlayerVisualization />
+        </div>
+        <div className="flex flex-row items-center gap-4">
+          {data ? (
+            <div>
+              <Figure className="size-96" id="mpld3-figure" _json={data} />
+              <FigureTools containerId="mpld3-figure" />
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
+          {data2 ? (
+            <div>
+              <Figure className="size-96" id="mpld3-figure2" _json={data2} />
+              <FigureTools containerId="mpld3-figure2" />
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
       </div>
     </>

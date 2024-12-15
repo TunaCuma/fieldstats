@@ -2,6 +2,8 @@
 import { useEffect } from "react";
 import mpld3 from "mpld3";
 
+//TODO if rect is white make it black
+//TODO hide toolbar
 export default function Figure({
   id,
   _json,
