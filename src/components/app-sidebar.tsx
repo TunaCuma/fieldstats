@@ -50,7 +50,7 @@ const data = {
     },
   ],
   navMain: [
-    { name: "dashboard", href: "/", icon: BarChart2 },
+    { name: "dashboard", href: "/dashboard", icon: BarChart2 },
     { name: "upload", href: "/upload", icon: Upload },
     { name: "matches", href: "/matches", icon: BarChart2 },
     { name: "teams", href: "/teams", icon: Users },
@@ -92,9 +92,9 @@ export function AppSidebar({ user, ...props }: AppSidebarProps) {
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={data.navMain} title="Platform" />
         <NavProjects projects={data.projects} />
-        <NavMain items={data.superAdminNavMain} />
+        <NavMain items={data.superAdminNavMain} title="Super Admin" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user} />

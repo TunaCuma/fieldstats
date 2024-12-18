@@ -13,12 +13,14 @@ import { usePathname } from "next/navigation";
 
 export function NavMain({
   items,
+  title,
 }: {
   items: {
     name: string;
     href: string;
     icon: LucideIcon;
   }[];
+  title: string;
 }) {
   const t = useTranslations();
   const pathname = usePathname();
@@ -32,7 +34,7 @@ export function NavMain({
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+      <SidebarGroupLabel>{title}</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>

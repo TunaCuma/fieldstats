@@ -26,6 +26,7 @@
 - [ ] Analytics (posthog)
 - [ ] Ratelimiting (upstash)
 
+look into aceternity ui
 add debounce to searches
 add d3.js
 we will use react-hook-form for forms

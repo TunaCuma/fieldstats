@@ -28,7 +28,7 @@ export default async function MainLayout({
     <SidebarProvider>
       <AppSidebar user={user} />
       <SidebarInset>
-        <header className="flex h-16 items-center border-b bg-card px-4">
+        <header className="flex h-16 items-center gap-4 border-b bg-card px-4">
           <SidebarTrigger className="-ml-1" />
           <Separator orientation="vertical" className="mr-2 h-4" />
           <Breadcrumbs />
