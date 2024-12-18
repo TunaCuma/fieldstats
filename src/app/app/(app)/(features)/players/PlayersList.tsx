@@ -10,7 +10,7 @@ export default function PlayersList() {
   // TODO add search
 
   return (
-    <div className="rounded-md border">
+    <div className="rounded-md border bg-card">
       <Table>
         <TableHeader>
           <TableRow>

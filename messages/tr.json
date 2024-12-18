@@ -9,7 +9,9 @@
     "profile": "Profil",
     "settings": "Ayarlar",
     "help": "Yardım",
-    "logout": "Çıkış Yap"
+    "logout": "Çıkış Yap",
+    "debug": "Debug",
+    "theme": "Tema"
   },
   "dashboard": {
     "title": "Kontrol Paneli",

@@ -9,7 +9,9 @@
     "profile": "Profile",
     "settings": "Settings",
     "help": "Help",
-    "logout": "Logout"
+    "logout": "Logout",
+    "debug": "Debug",
+    "theme": "Theme"
   },
   "dashboard": {
     "title": "Dashboard",

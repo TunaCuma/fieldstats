@@ -1,8 +1,15 @@
-import { Sidebar } from "@/components/layout/Sidebar";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { api } from "@/trpc/server";
 import { auth } from "@/server/auth";
 import { redirect } from "next/navigation";
 import { routes } from "@/constants/routes";
+import { AppSidebar } from "@/components/app-sidebar";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { Separator } from "@/components/ui/separator";
 
 export default async function MainLayout({
   children,
@@ -10,6 +17,7 @@ export default async function MainLayout({
   children: React.ReactNode;
 }) {
   const session = await auth();
+  const user = await api.user.getProfile();
 
   if (!session) {
     // Redirect to sign-in if not authenticated
@@ -17,17 +25,16 @@ export default async function MainLayout({
   }
 
   return (
-    <div className="flex h-screen overflow-hidden bg-background text-foreground">
-      <div className="hidden md:flex md:w-64 md:flex-col">
-        <Sidebar />
-      </div>
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <header className="flex h-16 items-center justify-between border-b bg-card px-4">
+    <SidebarProvider>
+      <AppSidebar user={user} />
+      <SidebarInset>
+        <header className="flex h-16 items-center border-b bg-card px-4">
+          <SidebarTrigger className="-ml-1" />
+          <Separator orientation="vertical" className="mr-2 h-4" />
           <Breadcrumbs />
-          {session.user.name}
         </header>
-        <main className="flex-1 overflow-y-auto p-4">{children}</main>
-      </div>
-    </div>
+        <main className="flex-1 overflow-y-scroll p-4">{children}</main>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }
