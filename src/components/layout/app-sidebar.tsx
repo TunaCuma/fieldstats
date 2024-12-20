@@ -12,10 +12,10 @@ import {
   // PieChart,
 } from "lucide-react";
 
-import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
+import { NavMain } from "@/components/layout/nav-main";
+import { NavProjects } from "@/components/layout/nav-projects";
+import { NavUser } from "@/components/layout/nav-user";
+import { TeamSwitcher } from "@/components/layout/team-switcher";
 import {
   Sidebar,
   SidebarContent,

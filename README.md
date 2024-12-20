@@ -26,6 +26,8 @@
 - [ ] Analytics (posthog)
 - [ ] Ratelimiting (upstash)
 
+- [ ] RouterOutput RouterInput types
+
 look into aceternity ui
 add debounce to searches
 add d3.js

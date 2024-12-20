@@ -3,7 +3,7 @@ import { api } from "@/trpc/server";
 import { auth } from "@/server/auth";
 import { redirect } from "next/navigation";
 import { routes } from "@/constants/routes";
-import { AppSidebar } from "@/components/app-sidebar";
+import { AppSidebar } from "@/components/layout/app-sidebar";
 import {
   SidebarInset,
   SidebarProvider,
