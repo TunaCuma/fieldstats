@@ -26,8 +26,36 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: "/:path*",
+        destination: "/app/:path*",
+        has: [
+          {
+            type: "host",
+            value: "app\\.fieldstats\\.pro$",
+          },
+        ],
+      },
+      {
+        source: "/:path*",
+        destination: "/home/:path*",
+        has: [
+          {
+            type: "host",
+            value: "fieldstats\\.pro$",
+          },
+        ],
+      },
+      {
         source: "/api/python/:path*",
         destination: "http://127.0.0.1:5328/:path*",
+      },
+      {
+        source: "/api/trpc/:path*",
+        destination: "/api/trpc/:path*", // Keep tRPC routes as-is
+      },
+      {
+        source: "/api/auth/:path*",
+        destination: "/api/auth/:path*", // Keep tRPC routes as-is
       },
       process.env.PORT === "4000"
         ? {

@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/contexts/ThemeProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { TRPCReactProvider } from "@/trpc/react";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,20 +27,23 @@ export default async function PageLayout({
   return (
     <html
       lang={locale}
-      className={`bg-black ${GeistSans.variable} ${inter.className}`}
+      className={`bg-white dark:bg-black ${GeistSans.variable} ${inter.className}`}
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NextIntlClientProvider messages={messages}>
-            <TRPCReactProvider>{children}</TRPCReactProvider>
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <TRPCReactProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NextIntlClientProvider messages={messages}>
+              {children}
+              <Toaster />
+            </NextIntlClientProvider>
+          </ThemeProvider>
+        </TRPCReactProvider>
       </body>
     </html>
   );

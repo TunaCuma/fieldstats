@@ -25,15 +25,25 @@
 - [ ] Error management (w/ Sentry)
 - [ ] Analytics (posthog)
 - [ ] Ratelimiting (upstash)
+- [ ] Autorization
 
+## Short time TODO
+
+- [x] use-hook-form
 - [ ] RouterOutput RouterInput types
+- [ ] trpc with tanstack
+- [ ] edit, create, delete player
+- [ ] display, edit, create, delete team
+- [ ] display, edit, create, delete matches (this one will took so much time)
+- [ ] backblaze and video upload
+- [ ] dashboard
+- [ ] landing page
 
-look into aceternity ui
-add debounce to searches
-add d3.js
-we will use react-hook-form for forms
-we will use tanstack table for data tables
-https://golden-layout.com/ keep in mind for when making an app ui
+### Maybe also these?
+
+- [ ] add debounce to searches
+- [ ] look into aceternity ui
+- [ ] https://golden-layout.com/ keep in mind for when making an app ui
 
 ## **Dependencies**
 
