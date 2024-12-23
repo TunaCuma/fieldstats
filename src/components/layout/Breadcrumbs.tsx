@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRight, Home } from "lucide-react";
 import {
@@ -32,13 +33,13 @@ export function Breadcrumbs() {
           <BreadcrumbItem key={breadcrumb.href}>
             {index < breadcrumbs.length - 1 ? (
               <>
-                <BreadcrumbLink href={breadcrumb.href}>
+                <Link href={breadcrumb.href}>
                   {index === 0 ? (
                     <breadcrumb.icon className="h-4 w-4" />
                   ) : (
                     breadcrumb.label
                   )}
-                </BreadcrumbLink>
+                </Link>
                 <BreadcrumbSeparator>
                   <ChevronRight className="h-4 w-4" />
                 </BreadcrumbSeparator>

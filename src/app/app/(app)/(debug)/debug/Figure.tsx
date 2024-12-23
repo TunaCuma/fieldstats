@@ -1,49 +1,112 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import mpld3 from "mpld3";
 
-//TODO if rect is white make it black
-//TODO hide toolbar
 export default function Figure({
   id,
   _json,
   className,
 }: {
   id: string;
-  _json: any;
+  _json: string | object;
   className?: string;
 }) {
+  const [jsonData, setJsonData] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
+  const figureRef = useRef<boolean>(false);
+
   useEffect(() => {
-    // Remove any existing figure
-    mpld3.remove_figure(id);
-    // Draw the new figure
-    mpld3.draw_figure(id, _json);
+    const fetchAndDrawFigure = async () => {
+      try {
+        // Reset states
+        setError(null);
 
-    // Update SVG attributes
-    const updateSvgAttributes = () => {
-      const svg = document.querySelector(`#${id} svg`);
-      if (svg) {
-        const width = svg.getAttribute("width");
-        const height = svg.getAttribute("height");
+        // Get the JSON data
+        let data;
+        if (typeof _json === "string") {
+          // If _json is a URL, fetch it
+          const response = await fetch(_json);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch data: ${response.statusText}`);
+          }
+          data = await response.json();
+        } else {
+          // If _json is already an object, use it directly
+          data = _json;
+        }
 
-        if (width && height) {
-          const widthNum = parseFloat(width);
-          const heightNum = parseFloat(height);
-          svg.removeAttribute("width");
-          svg.removeAttribute("height");
-          svg.setAttribute("viewBox", `0 0 ${widthNum} ${heightNum}`);
+        setJsonData(data);
+
+        // Only remove the figure if it was previously drawn
+        if (figureRef.current) {
+          mpld3.remove_figure(id);
+        }
+
+        // Draw the new figure
+        mpld3.draw_figure(id, data);
+        figureRef.current = true;
+
+        // Update SVG attributes with retry logic
+        const updateSvgAttributes = (retries = 5) => {
+          const svg = document.querySelector(`#${id} svg`);
+          if (svg) {
+            const width = svg.getAttribute("width");
+            const height = svg.getAttribute("height");
+            if (width && height) {
+              const widthNum = parseFloat(width);
+              const heightNum = parseFloat(height);
+              svg.removeAttribute("width");
+              svg.removeAttribute("height");
+              svg.setAttribute("viewBox", `0 0 ${widthNum} ${heightNum}`);
+              svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+            }
+          } else if (retries > 0) {
+            // Retry if SVG is not found
+            setTimeout(() => updateSvgAttributes(retries - 1), 100);
+          }
+        };
+
+        // Initial attempt to update SVG
+        updateSvgAttributes();
+      } catch (err) {
+        console.error("Error in Figure component:", err);
+        setError(err instanceof Error ? err.message : "An error occurred");
+        if (figureRef.current) {
+          mpld3.remove_figure(id);
+          figureRef.current = false;
         }
       }
     };
 
-    // Ensure the SVG is updated after the figure is drawn
-    setTimeout(updateSvgAttributes, 0);
+    fetchAndDrawFigure();
 
     // Cleanup on unmount
     return () => {
-      mpld3.remove_figure(id);
+      if (figureRef.current) {
+        mpld3.remove_figure(id);
+        figureRef.current = false;
+      }
     };
-  }, [id, _json]); // Dependency array to re-run effect when id or _json changes
+  }, [id, _json]); // Fixed dependency array
+
+  if (error) {
+    return (
+      <div
+        id={id}
+        className={`${className} flex items-center justify-center text-red-500`}
+      >
+        Error: {error}
+      </div>
+    );
+  }
+
+  if (!jsonData) {
+    return (
+      <div id={id} className={`${className} flex items-center justify-center`}>
+        Loading...
+      </div>
+    );
+  }
 
   return <div id={id} className={className} />;
 }

@@ -7,6 +7,7 @@ import { fetchJson } from "./figure-fetch-action";
 import { useEffect, useState } from "react";
 import FigureTools from "./FigureTools";
 import PlayerVisualization from "@/components/graphs/PlayerVisualization";
+import DataFigures from "../../(features)/matches/[matchId]/DataFigures";
 
 const sampleData: PassData[] = [
   {
@@ -39,27 +40,7 @@ function App() {
   return (
     <>
       <div className="mx-auto flex flex-col items-center gap-2">
-        <div className="flex flex-col items-center gap-4">
-          <PlayerVisualization />
-        </div>
-        <div className="flex flex-row items-center gap-4">
-          {data ? (
-            <div>
-              <Figure className="size-96" id="mpld3-figure" _json={data} />
-              <FigureTools containerId="mpld3-figure" />
-            </div>
-          ) : (
-            <p>Loading...</p>
-          )}
-          {data2 ? (
-            <div>
-              <Figure className="size-96" id="mpld3-figure2" _json={data2} />
-              <FigureTools containerId="mpld3-figure2" />
-            </div>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
+        <div className="flex flex-col items-center gap-4"></div>
       </div>
     </>
   );

@@ -1,11 +1,23 @@
-'use client'
+"use client";
 
+import MatchPage from "./MatchPage";
 import { useTranslations } from "next-intl";
-import { useParams } from 'next/navigation';
-import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PlayerVisualization from "@/components/graphs/PlayerVisualization";
+import Figure from "../../../(debug)/debug/Figure";
+import DataFigures from "./DataFigures";
+import DistanceCharts from "./DistanceGraphs";
+import StatisticsTables from "./Tables";
 
 export default function MatchDetails() {
   const t = useTranslations();
@@ -15,71 +27,102 @@ export default function MatchDetails() {
   // Mock data for a match
   const match = {
     id: matchId,
-    name: 'Match 1',
-    date: '2023-05-01',
-    teamA: 'Team A',
-    teamB: 'Team B',
-    score: '2 - 1',
+    name: "Match 1",
+    date: "2024-12-01",
+    teamA: "Kavaklıderespor",
+    teamB: "Metespor",
+    score: "0 - 0",
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">{t('matchDetails.title', { matchName: match.name })}</h1>
+    <div className="flex w-full flex-col gap-4 p-4">
+      <h1 className="text-3xl font-bold">
+        {t("matchDetails.title") + ": " + match.name}
+      </h1>
 
-      <Card className="mb-6">
+      <div className="flex flex-col items-center gap-4">
+        <PlayerVisualization />
+      </div>
+
+      <Card className="">
         <CardHeader>
-          <CardTitle>{t('matchDetails.summary')}</CardTitle>
+          <CardTitle>{t("matchDetails.summary")}</CardTitle>
         </CardHeader>
         <CardContent>
-          <p>{t('matchDetails.date')}: {match.date}</p>
-          <p>{t('matchDetails.teams')}: {match.teamA} vs {match.teamB}</p>
-          <p>{t('matchDetails.score')}: {match.score}</p>
+          <p>
+            {t("matchDetails.date")}: {match.date}
+          </p>
+          <p>
+            {t("matchDetails.teams")}: {match.teamA} vs {match.teamB}
+          </p>
+          <p>
+            {t("matchDetails.score")}: {match.score}
+          </p>
         </CardContent>
+        <CardFooter>
+          <div className="space-x-2">
+            <Button asChild variant="outline">
+              <Link href={`/matches/${matchId}/edit`}>
+                {t("matchDetails.editMatch")}
+              </Link>
+            </Button>
+            <Button variant="destructive">
+              {t("matchDetails.deleteMatch")}
+            </Button>
+          </div>
+        </CardFooter>
       </Card>
-
-      <div className="mb-6 space-x-2">
-        <Button asChild>
-          <Link href={`/matches/${matchId}/reports`}>{t('matchDetails.viewReports')}</Link>
-        </Button>
-        <Button asChild variant="outline">
-          <Link href={`/matches/${matchId}/edit`}>{t('matchDetails.editMatch')}</Link>
-        </Button>
-        <Button variant="destructive">{t('matchDetails.deleteMatch')}</Button>
-      </div>
 
       <Tabs defaultValue="overview">
         <TabsList>
-          <TabsTrigger value="overview">{t('matchDetails.overview')}</TabsTrigger>
-          <TabsTrigger value="reports">{t('matchDetails.reports')}</TabsTrigger>
-          <TabsTrigger value="interactive">{t('matchDetails.interactive')}</TabsTrigger>
+          <TabsTrigger value="overview">
+            {t("matchDetails.overview")}
+          </TabsTrigger>
+          <TabsTrigger value="distance">Distance Charts</TabsTrigger>
+          <TabsTrigger value="heatMaps">Heatmaps</TabsTrigger>
+          <TabsTrigger value="tables">Tables</TabsTrigger>
         </TabsList>
         <TabsContent value="overview">
           <Card>
             <CardHeader>
-              <CardTitle>{t('matchDetails.overviewTitle')}</CardTitle>
+              <CardTitle>{t("matchDetails.overviewTitle")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>{t('matchDetails.overviewContent')}</p>
+              <p>{t("matchDetails.overviewContent")}</p>
+              <MatchPage />
             </CardContent>
           </Card>
         </TabsContent>
-        <TabsContent value="reports">
+        <TabsContent value="distance">
           <Card>
             <CardHeader>
-              <CardTitle>{t('matchDetails.reportsTitle')}</CardTitle>
+              <CardTitle>{t("matchDetails.reportsTitle")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>{t('matchDetails.reportsContent')}</p>
+              <p>{t("matchDetails.reportsContent")}</p>
+              <DistanceCharts />
             </CardContent>
           </Card>
         </TabsContent>
-        <TabsContent value="interactive">
+        <TabsContent value="heatMaps">
           <Card>
             <CardHeader>
-              <CardTitle>{t('matchDetails.interactiveTitle')}</CardTitle>
+              <CardTitle>{t("matchDetails.reportsTitle")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>{t('matchDetails.interactiveContent')}</p>
+              <p>{t("matchDetails.reportsContent")}</p>
+              <DataFigures />
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="tables">
+          <Card>
+            <CardHeader>
+              <CardTitle>{t("matchDetails.reportsTitle")}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>{t("matchDetails.reportsContent")}</p>
+              <StatisticsTables />
             </CardContent>
           </Card>
         </TabsContent>
@@ -87,4 +130,3 @@ export default function MatchDetails() {
     </div>
   );
 }
-

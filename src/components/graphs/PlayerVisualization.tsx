@@ -140,7 +140,7 @@ const PlayerVisualization: React.FC<PlayerVisualizationProps> = ({
     currentFrameIndex !== null ? frames[currentFrameIndex] : null;
 
   return (
-    <Card className="mx-auto w-full max-w-4xl">
+    <Card className="mx-auto max-w-4xl">
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
           Football Player Tracking

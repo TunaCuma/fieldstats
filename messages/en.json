@@ -50,7 +50,7 @@
     "noMatches": "No matches found"
   },
   "matchDetails": {
-    "title": "Match Details: {{matchName}}",
+    "title": "Match Details",
     "summary": "Match Summary",
     "date": "Date",
     "teams": "Teams",

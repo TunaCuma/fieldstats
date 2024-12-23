@@ -1,6 +1,4 @@
 from flask import Flask, Response, stream_with_context, request
-from passes_graph import giveFig
-from plot_fbref import giveFig as giveFig2
 import mpld3
 import time
 from mpld3._display import NumpyEncoder
@@ -53,14 +51,6 @@ def stream_frames():
 @app.route('/total-frames')
 def get_frames_count():
     return {"total_frames": get_total_frames()}
-
-@app.route('/passes', methods=['GET'])
-def hello_world():
-    return json.dumps(mpld3.fig_to_dict(giveFig()), cls=NumpyEncoder)
-
-@app.route('/dominations', methods=['GET'])
-def hello_world2():
-    return json.dumps(mpld3.fig_to_dict(giveFig2()), cls=NumpyEncoder)
 
 if __name__ == '__main__':
     app.run(port=5328)

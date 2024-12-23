@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
 import { useTranslations } from "next-intl";
-import Link from 'next/link';
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,16 +11,25 @@ export default function Matches() {
 
   // Mock data for matches
   const matches = [
-    { id: 1, name: 'Match 1', date: '2023-05-01', teamA: 'Team A', teamB: 'Team B' },
-    { id: 2, name: 'Match 2', date: '2023-05-15', teamA: 'Team C', teamB: 'Team D' },
+    {
+      id: 1,
+      name: "Match 1",
+      date: "2024-12-01",
+      teamA: "Kavaklıderespor",
+      teamB: "Metespor",
+    },
   ];
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">{t('matches.title')}</h1>
+      <h1 className="mb-6 text-3xl font-bold">{t("matches.title")}</h1>
 
       <div className="mb-4">
-        <Input type="text" placeholder={t('matches.search')} className="max-w-sm" />
+        <Input
+          type="text"
+          placeholder={t("matches.search")}
+          className="max-w-sm"
+        />
       </div>
 
       <div className="grid gap-4">
@@ -30,11 +39,17 @@ export default function Matches() {
               <CardTitle>{match.name}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>{t('matches.date')}: {match.date}</p>
-              <p>{t('matches.teams')}: {match.teamA} vs {match.teamB}</p>
+              <p>
+                {t("matches.date")}: {match.date}
+              </p>
+              <p>
+                {t("matches.teams")}: {match.teamA} - {match.teamB}
+              </p>
               <div className="mt-4">
                 <Button asChild>
-                  <Link href={`/matches/${match.id}`}>{t('matches.viewDetails')}</Link>
+                  <Link href={`/matches/${match.id}`}>
+                    {t("matches.viewDetails")}
+                  </Link>
                 </Button>
               </div>
             </CardContent>
@@ -45,11 +60,10 @@ export default function Matches() {
       {matches.length === 0 && (
         <Card>
           <CardContent>
-            <p className="py-4">{t('matches.noMatches')}</p>
+            <p className="py-4">{t("matches.noMatches")}</p>
           </CardContent>
         </Card>
       )}
     </div>
   );
 }
-

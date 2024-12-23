@@ -93,8 +93,6 @@ export function AppSidebar({ user, ...props }: AppSidebarProps) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} title="Platform" />
-        <NavProjects projects={data.projects} />
-        <NavMain items={data.superAdminNavMain} title="Super Admin" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user} />
