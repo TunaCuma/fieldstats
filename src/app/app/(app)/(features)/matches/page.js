@@ -47,9 +47,7 @@ export default function Matches() {
               </p>
               <div className="mt-4">
                 <Button asChild>
-                  <Link href={`/matches/${match.id}`}>
-                    {t("matches.viewDetails")}
-                  </Link>
+                  <Link href={`/matches/${match.id}`}>View Reports</Link>
                 </Button>
               </div>
             </CardContent>

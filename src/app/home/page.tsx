@@ -9,8 +9,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import "@/styles/globals.css";
+import LandingPage from "./LandingPage";
 
-export default function LandingPage() {
+export default function Page() {
   const t = useTranslations("LandingPage");
 
   return (
@@ -27,17 +28,7 @@ export default function LandingPage() {
       </header>
 
       <main className="flex flex-grow flex-col gap-20">
-        <section className="flex h-screen flex-col justify-center bg-gradient-to-b from-green-600 to-background py-20">
-          <div className="container mx-auto text-center">
-            <h2 className="mb-6 text-4xl font-bold">{t("heroTitle")}</h2>
-            <p className="mx-auto mb-8 max-w-2xl text-xl">
-              {t("heroSubtitle")}
-            </p>
-            <Button size="lg" asChild>
-              <Link href="https://app.fieldstats.pro">{t("heroButton")}</Link>
-            </Button>
-          </div>
-        </section>
+        <LandingPage />
 
         <section className="py-20">
           <div className="container mx-auto">
