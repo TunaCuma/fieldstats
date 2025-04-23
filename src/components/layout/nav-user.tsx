@@ -82,6 +82,7 @@ export function NavUser({ user }: { user: UserSelectType | null }) {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
+            {/*
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <Sparkles />
@@ -104,6 +105,7 @@ export function NavUser({ user }: { user: UserSelectType | null }) {
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
+            */}
             <Link href={routes.signout}>
               <DropdownMenuItem>
                 <LogOut />

@@ -10,6 +10,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
+import { type UserSelectType } from "@/data-access/user/userTypes";
 
 export default async function MainLayout({
   children,
@@ -17,7 +18,12 @@ export default async function MainLayout({
   children: React.ReactNode;
 }) {
   const session = await auth();
-  const user = await api.user.getProfile();
+  let user: UserSelectType | null = null;
+  try {
+    user = await api.user.getProfile();
+  } catch {
+    redirect(routes.signin);
+  }
 
   if (!session) {
     // Redirect to sign-in if not authenticated

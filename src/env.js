@@ -19,6 +19,14 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
+    B2_KEY_ID: z.string(),
+    B2_APP_KEY: z.string(),
+    B2_BUCKET_NAME: z.string(),
+    /**
+     * Add your other server-side env vars here
+     */
+    // B2_KEY_ID=K00
+    //
   },
 
   /**
@@ -42,6 +50,9 @@ export const env = createEnv({
     AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
+    B2_KEY_ID: process.env.B2_KEY_ID,
+    B2_APP_KEY: process.env.B2_APP_KEY,
+    B2_BUCKET_NAME: process.env.B2_BUCKET_NAME,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
